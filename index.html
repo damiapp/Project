@@ -18,7 +18,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <!-- Navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-dark" >
       <div class="container-fluid">
           <div class="navbar-header">
@@ -27,18 +28,20 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span> 
                 </button>
-            <a class="navbar-brand" href="#">GreenWall</a>
+            <a class="navbar-brand" href="index.html">GreenWall</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li class="active"><a href="index.html"> <span class="glyphicon glyphicon-home	
+              "></span> Home</a></li>
+            <li><a href="#aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
+            <li><a href="shop.html"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
+            <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
           </ul>
         </div>
       </div>
     </nav>
+    <!-- Navbar -->
   <div class="pimg1">
     <div class="ptext">
       <span class="border">
@@ -47,7 +50,7 @@
     </div>
   </div>
 
-  <section class="section section-light">
+  <section class="section section-light" id="aboutus">
     <h2>About us</h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. Distinctio provident dolorem modi cumque illo enim quidem tempora deserunt nostrum voluptate labore repellat quisquam quasi cum suscipit dolore ab consequuntur, ad porro earum temporibus. Laborum ad temporibus ex, omnis!
@@ -57,7 +60,7 @@
   <div class="pimg2">
     <div class="ptext">
       <span class="border trans">
-        Shop
+        Featured Products
       </span>
     </div>
   </div>
@@ -77,7 +80,7 @@
     </div>
   </div>
 
-  <section class="section section-dark">
+  <section class="section section-dark" id="contact">
     <h2>Contact</h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in.

@@ -1,0 +1,52 @@
+
+<html>
+    <head>
+        <title>User registration</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <style>
+        body, html{
+            color:rgb(0, 0, 0);
+        }
+        </style>
+    </head>
+        <body>
+            <div class="container">
+                <div class="col-md-6 col-md-offset-3">
+                <form id="registration_form" action="register.php" method="GET">
+                    <div class="imgcontainer">
+                        <img src="avatar.png" alt="Avatar" class="avatar">
+                    </div>
+                    <div id="error"></div>
+                    <div>
+                        <label for='username'>Username</label>
+                        <br>
+                        <input id='username' placeholder="Enter Username" type="text" required name="username">
+                    </div>
+                    <div>
+                        <label for='password'>Password</label>
+                        <br>
+                        <input id='password' placeholder="Enter Password" type="password" name="password">
+                    </div>
+                    <div>
+                        <label for='email'>E-mail</label>
+                        <br>
+                        <input id='email' placeholder="Enter E-mail" type="email" pattern="[a-zA-Z0-9_.]+@.+\..+" name="email">
+                    </div>
+                    <div>
+                        <input id='news' type="checkbox" name="news">
+                        <label for='news'>News</label>
+                        <br>
+                    </div>
+                    <div>
+                        <input id="submit_button" type="submit" value="Register" >
+                    </div>
+                </form>
+            </div>
+        <script src="validation.js"></script>
+                <!--  -->
+    </body>
+</html>

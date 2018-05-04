@@ -43,39 +43,27 @@
             <!-- registration -->
             <div class="container">
                 <div class="col-lg-6 col-lg-offset-3">
-                <form id="registration_form" action="register.php" method="GET">
+                <form action="login.php" method="GET">
                     <div class="imgcontainer">
                         <img src="avatar.png" alt="Avatar" class="avatar">
                     </div>
                     <div id="error"></div>
                     <div>
-                        <label for='username'>Username</label>
-                        <br>
-                        <input id='username' placeholder="Enter Username" type="text" required name="username">
-                    </div>
-                    <div>
-                        <label for='password'>Password (at least one digit)</label>
-                        <br>
-                        <input id='password' placeholder="Enter Password" type="password" required name="password"
-                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$">
-                    </div>
-                    <div>
                         <label for='email'>E-mail</label>
                         <br>
-                        <input id='email' placeholder="Enter E-mail" type="email" 
-                        pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required name="email">
+                        <input id='email' placeholder="Enter E-mail" type="email" pattern="[a-zA-Z0-9_.]+@.+\..+" required name="email">
                     </div>
                     <div>
-                        <input id='news' type="checkbox" name="news">
-                        <label for='news'>News &amp; Updates</label>
+                        <label for='password'>Password</label>
                         <br>
+                        <input id='password' placeholder="Enter Password" type="password" 
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$" required name="password">
                     </div>
                     <div>
-                        <input id="submit_button" type="submit" value="Register" >
+                        <input id="submit_button" type="submit" value="Log in" >
                     </div>
                 </form>
                 </div>
             </div>
-        <script src="validation.js"></script>
     </body>
 </html>

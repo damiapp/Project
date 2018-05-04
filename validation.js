@@ -25,7 +25,6 @@ submit_button.onclick=function(){
     var password = password_element.value;
 
     if(password.length==0 || password.length>10){
-        window.alert("Wrong password length!");
         return;
     }
     var digit = false;
@@ -51,11 +50,6 @@ submit_button.onclick=function(){
     /* news */
     var news_element = document.querySelector("#news");
     if(news_element.checked == true){
-        var area_element=document.querySelector("#area");
-        var area= area_element.value;
-        if(area == "-"){
-            window.alert("Please select the area!");
-            return;
-        }
+        return;
     }
 }

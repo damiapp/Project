@@ -1,11 +1,4 @@
-<?php
-$connection = mysqli_connect('localhost','root',"",'nikola_prj');
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-
-?>
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,6 +45,7 @@ if (mysqli_connect_errno())
             <div class="container">
                 <div class="col-lg-6 col-lg-offset-3">
                 <form action="login.php" method="POST">
+                <?php include('errors.php'); ?>
                     <div class="imgcontainer">
                         <img src="avatar.png" alt="Avatar" class="avatar">
                     </div>
@@ -68,7 +62,7 @@ if (mysqli_connect_errno())
                         pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$" required name="password">
                     </div>
                     <div>
-                        <input id="submit_button" name = "submit" type="submit" value="Log in" >
+                        <input id="submit_button" name = "login_confirm" type="submit" value="Log in" >
                     </div>
                 </form>
                 </div>

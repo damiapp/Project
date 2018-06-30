@@ -1,23 +1,4 @@
-<?php
-$connection = mysqli_connect('localhost','root',"",'nikola_prj');
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-  if(isset($_POST['confirm_registration'])){
-	$username= $_POST['username'];
-	$password = $_POST['password'];
-    $email = $_POST['email'];
-    $result =mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `user_prj` WHERE user_email = '$email' AND user_password = MD5('$password')"));
-    if($result==0){
-        mysqli_query($connection, "INSERT INTO `user_prj`(`user_id`, `user_email`, `user_name`, `user_password`) VALUES(null, '{$email}', '{$username}', MD5('{$password}'))");
-    }
-    else{
-        $message="User with ".$email."already exists.";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
-};
-?>
+<?php include('server.php') ?>
 <html>
     <head>
         <title>User registration</title>
@@ -63,6 +44,7 @@ if (mysqli_connect_errno())
             <div class="container">
                 <div class="col-lg-6 col-lg-offset-3">
                 <form id="registration_form" action="" method="POST">
+                <?php include('errors.php'); ?>
                     <div class="imgcontainer">
                         <img src="avatar.png" alt="Avatar" class="avatar">
                     </div>

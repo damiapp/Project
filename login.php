@@ -1,3 +1,11 @@
+<?php
+$connection = mysqli_connect('localhost','root',"",'nikola_prj');
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,12 +38,12 @@
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="shop.php">Shop</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                        <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                         </ul>
                         </div>
                     </div>
@@ -43,7 +51,7 @@
             <!-- registration -->
             <div class="container">
                 <div class="col-lg-6 col-lg-offset-3">
-                <form action="login.php" method="GET">
+                <form action="login.php" method="POST">
                     <div class="imgcontainer">
                         <img src="avatar.png" alt="Avatar" class="avatar">
                     </div>
@@ -60,7 +68,7 @@
                         pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$" required name="password">
                     </div>
                     <div>
-                        <input id="submit_button" type="submit" value="Log in" >
+                        <input id="submit_button" name = "submit" type="submit" value="Log in" >
                     </div>
                 </form>
                 </div>

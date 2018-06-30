@@ -32,11 +32,11 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="shop.php">Shop</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>

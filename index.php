@@ -28,19 +28,19 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span> 
                 </button>
-            <a class="navbar-brand" href="index.html">GreenWall</a>
+            <a class="navbar-brand" href="index.php">GreenWall</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html"> <span class="glyphicon glyphicon-home	
+            <li class="active"><a href="index.php"> <span class="glyphicon glyphicon-home	
               "></span> Home</a></li>
             <li><a href="#aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
-            <li><a href="shop.html"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
+            <li><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
             <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </div>

@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+$connection = mysqli_connect('localhost','root',"",'nikola_prj');
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+  if(isset($_POST['confirm_registration'])){
+	$username= $_POST['username'];
+	$password = $_POST['password'];
+    $email = $_POST['email'];
+    mysqli_query($connection, "INSERT INTO `user_prj`(`user_id`, `user_email`, `user_name`, `user_password`) VALUES(null, '{$email}', '{$username}', MD5('{$password}'))");
+};
+?>
 <html>
     <head>
         <title>User registration</title>
@@ -26,16 +38,16 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span> 
                             </button>
-                        <a class="navbar-brand" href="index.html">GreenWall</a>
+                        <a class="navbar-brand" href="index.php">GreenWall</a>
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="shop.php">Shop</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                        <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                         </ul>
                         </div>
                     </div>
@@ -43,7 +55,7 @@
             <!-- registration -->
             <div class="container">
                 <div class="col-lg-6 col-lg-offset-3">
-                <form id="registration_form" action="register.php" method="GET">
+                <form id="registration_form" action="" method="POST">
                     <div class="imgcontainer">
                         <img src="avatar.png" alt="Avatar" class="avatar">
                     </div>
@@ -62,8 +74,7 @@
                     <div>
                         <label for='email'>E-mail</label>
                         <br>
-                        <input id='email' placeholder="Enter E-mail" type="email" 
-                        pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required name="email">
+                        <input id='email' placeholder="Enter E-mail" type="email"  required name="email">
                     </div>
                     <div>
                         <input id='news' type="checkbox" name="news">
@@ -71,7 +82,7 @@
                         <br>
                     </div>
                     <div>
-                        <input id="submit_button" type="submit" value="Register" >
+                        <input id="submit_button" type="submit" name="confirm_registration" value="Register" >
                     </div>
                 </form>
                 </div>

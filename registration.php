@@ -8,7 +8,14 @@ if (mysqli_connect_errno())
 	$username= $_POST['username'];
 	$password = $_POST['password'];
     $email = $_POST['email'];
-    mysqli_query($connection, "INSERT INTO `user_prj`(`user_id`, `user_email`, `user_name`, `user_password`) VALUES(null, '{$email}', '{$username}', MD5('{$password}'))");
+    $result =mysqli_num_rows(mysqli_query($connection, "SELECT * FROM `user_prj` WHERE user_email = '$email' AND user_password = MD5('$password')"));
+    if($result==0){
+        mysqli_query($connection, "INSERT INTO `user_prj`(`user_id`, `user_email`, `user_name`, `user_password`) VALUES(null, '{$email}', '{$username}', MD5('{$password}'))");
+    }
+    else{
+        $message="User with ".$email."already exists.";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
 };
 ?>
 <html>
@@ -75,11 +82,6 @@ if (mysqli_connect_errno())
                         <label for='email'>E-mail</label>
                         <br>
                         <input id='email' placeholder="Enter E-mail" type="email"  required name="email">
-                    </div>
-                    <div>
-                        <input id='news' type="checkbox" name="news">
-                        <label for='news'>News &amp; Updates</label>
-                        <br>
                     </div>
                     <div>
                         <input id="submit_button" type="submit" name="confirm_registration" value="Register" >

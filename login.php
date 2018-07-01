@@ -51,9 +51,9 @@
                     </div>
                     <div id="error"></div>
                     <div>
-                        <label for='email'>E-mail</label>
+                        <label for='username'>Username</label>
                         <br>
-                        <input id='email' placeholder="Enter E-mail" type="email" pattern="[a-zA-Z0-9_.]+@.+\..+" required name="email">
+                        <input id='username' placeholder="Enter Username" type="text" required name="username">
                     </div>
                     <div>
                         <label for='password'>Password</label>

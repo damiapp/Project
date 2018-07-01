@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,17 +36,26 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span> 
                 </button>
-            <a class="navbar-brand" href="index.html">GreenWall</a>
+            <a class="navbar-brand" href="index.php">GreenWall</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="shop.php">Shop</a></li>
           </ul>
+          <!--login logout profile -->
+          <?php if(!isset($_SESSION['username'])) : ?>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
+          <?php endif ?>
+          <?php if(isset($_SESSION['username'])) : ?>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a><span class='glyphicon glyphicon-user'></span><?php echo $_SESSION['username']; ?></a></li>
+              <li><a href="index.php?logout='1'"><span class='glyphicon glyphicon-log-out'></span>LogOut</a></li>
+            </ul>
+          <?php endif ?>
         </div>
       </div>
     </nav>

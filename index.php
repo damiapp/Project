@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+  
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -38,14 +46,26 @@
             <li><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
             <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
           </ul>
+          <!--login logout profile -->
+          <?php if(!isset($_SESSION['username'])) : ?>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
+          <?php endif ?>
+          <?php if(isset($_SESSION['username'])) : ?>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a><span class='glyphicon glyphicon-user'></span><?php echo $_SESSION['username']; ?></a></li>
+              <?php if($_SESSION['usertype']=="1") : ?>
+                <li><a href='#'><span class='glyphicon glyphicon-wrench'></span>Settings</a></li>
+              <?php endif ?>
+              <li><a href="index.php?logout='1'"><span class='glyphicon glyphicon-log-out'></span>LogOut</a></li>
+            </ul>
+          <?php endif ?>
         </div>
       </div>
     </nav>
-    <!-- Navbar -->
+    <!-- Page -->
   <div class="pimg1">
     <div class="ptext">
       <span class="border">

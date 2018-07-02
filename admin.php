@@ -49,8 +49,23 @@
         $_SESSION['message'] = "Item deleted!"; 
         header('location: admin.php');
     }
-    
-
+    if (isset($_POST['update'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $text =$_POST['desc'];
+        $image=$_FILES['image']['name'];
+        $target= "images/".basename($image);
+        $sql="UPDATE item_prj SET item_name='$name', item_price ='$price', item_text='$text', item_image='$image' WHERE item_id=$id";
+        mysqli_query($connection, $sql);
+        if(move_uploaded_file($_FILES['image']['tmp_name'],$target)){
+        }
+        else{
+            $_SESSION['message'] = "Image not saved correctly";
+        }    
+        $_SESSION['message'] = "Item updated!"; 
+        header('location: admin.php');
+    }
 ?>
 <html>
 
@@ -148,7 +163,48 @@
 		?>
 	</div>
     <?php endif ?>
-    
+    <!-- FORM -->
+    <div class="container">
+        <div class="col-lg-6 col-lg-offset-3">
+        <form id="admin_form" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <div>
+                <label>Item Name</label>
+                <input type="text" name="name" value="<?php echo $name; ?>">
+            </div>
+            <div>
+                <label>Item Price(RSD)</label>
+                <input type="text" name="price" value="<?php echo $price; ?>">
+            </div>
+            <div>
+                <label>Item Description</label>
+                <textarea type="text" name="desc" cols='40' rows ='4'><?php echo $text; ?></textarea>
+            </div>
+            <div>
+                <label>Item Image
+                <input type="file" name="image" value="<?php echo $image; ?>"></label>
+            </div>
+            <div>
+            
+            <?php if ($update == true) : ?>
+                <input id="submit_button" type="submit" name="update" style="background: #556B2F;" value="Edit" >
+            <?php else : ?>
+                <input id="submit_button" type="submit" name="save" value="Save">
+            <?php endif ?>
+            
+            </div>
+            <!-- msg -->
+                <?php if (isset($_SESSION['message'])): ?>
+                <div>
+                    <?php 
+                        echo $_SESSION['message']; 
+                        unset($_SESSION['message']);
+                    ?>
+                </div>
+                <?php endif ?>
+        </form>
+        </div>
+    </div>
     <!--SQL TABLE-->
     <?php $results = mysqli_query($connection, "SELECT * FROM item_prj"); ?>
 
@@ -178,66 +234,7 @@
             </tr>
         <?php } ?>
     </table>
-    <!-- FORM -->
-    <div class="container">
-        <div class="col-lg-6 col-lg-offset-3">
-        <form id="admin_form" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <div>
-                <label>Item Name</label>
-                <input type="text" name="name" value="<?php echo $name; ?>">
-            </div>
-            <div>
-                <label>Item Price(RSD)</label>
-                <input type="text" name="price" value="<?php echo $price; ?>">
-            </div>
-            <div>
-                <label>Item Description</label>
-                <textarea type="text" name="desc" cols='40' rows ='4' value="<?php echo $text; ?>"></textarea>
-            </div>
-            <div>
-                <label>Item Image</label>
-                <input type="file" name="image" value="<?php echo $image; ?>">
-            </div>
-            <div>
-            <?php
-            if (isset($_POST['update'])) {
-                $id = $_POST['id'];
-                $name = $_POST['name'];
-                $price = $_POST['price'];
-                $text =$_POST['desc'];
-                $image=$_FILES['image']['name'];
-                $target= "images/".basename($image);
-                $sql="UPDATE item_prj SET item_name='$name', item_price ='$price', item_text='$text', item_image='$image' WHERE item_id=$id";
-                mysqli_query($connection, $sql);
-                if(move_uploaded_file($_FILES['image']['tmp_name'],$target)){
-                }
-                else{
-                    $_SESSION['message'] = "Image not saved correctly";
-                }    
-                $_SESSION['message'] = "Item updated!"; 
-                header('location: admin.php');
-            }
-            ?>
-            <?php if ($update == true) : ?>
-                <input id="submit_button" type="submit" name="update" style="background: #556B2F;" value="Update" >
-            <?php else : ?>
-                <input id="submit_button" type="submit" name="save" value="Save">
-            <?php endif ?>
-            
-            </div>
-            <!-- msg -->
-                <?php if (isset($_SESSION['message'])): ?>
-                <div>
-                    <?php 
-                        echo $_SESSION['message']; 
-                        unset($_SESSION['message']);
-                    ?>
-                </div>
-                <?php endif ?>
-        </form>
-        </div>
-    </div>
+    
 <body
 
 </html>

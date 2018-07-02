@@ -57,7 +57,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a><span class='glyphicon glyphicon-user'></span><?php echo $_SESSION['username']; ?></a></li>
               <?php if($_SESSION['usertype']=="1") : ?>
-                <li><a href='#'><span class='glyphicon glyphicon-wrench'></span>Settings</a></li>
+                <li><a href='admin.php'><span class='glyphicon glyphicon-wrench'></span>Settings</a></li>
               <?php endif ?>
               <li><a href="index.php?logout='1'"><span class='glyphicon glyphicon-log-out'></span>LogOut</a></li>
             </ul>

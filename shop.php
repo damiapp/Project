@@ -40,8 +40,11 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="shop.php">Shop</a></li>
+            <li class="active"><a href="index.php"> <span class="glyphicon glyphicon-home	
+              "></span> Home</a></li>
+            <li><a href="#aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
+            <li><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
+            <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
           </ul>
           <!--login logout profile -->
           <?php if(!isset($_SESSION['username'])) : ?>
@@ -53,6 +56,9 @@
           <?php if(isset($_SESSION['username'])) : ?>
             <ul class="nav navbar-nav navbar-right">
               <li><a><span class='glyphicon glyphicon-user'></span><?php echo $_SESSION['username']; ?></a></li>
+              <?php if($_SESSION['usertype']=="1") : ?>
+                <li><a href='admin.php'><span class='glyphicon glyphicon-wrench'></span>Settings</a></li>
+              <?php endif ?>
               <li><a href="index.php?logout='1'"><span class='glyphicon glyphicon-log-out'></span>LogOut</a></li>
             </ul>
           <?php endif ?>
@@ -64,16 +70,7 @@
 
       <div class="row">
 
-          <div class="col-md-3">
-              <p class="lead">Shop Name</p>
-              <div class="list-group">
-                  <a href="#" class="list-group-item">Category 1</a>
-                  <a href="#" class="list-group-item">Category 2</a>
-                  <a href="#" class="list-group-item">Category 3</a>
-              </div>
-          </div>
-
-          <div class="col-md-8">
+          <div class="col-md-offset-2 col-md-8">
 
               <div class="row carousel-holder">
 

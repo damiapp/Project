@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $connection = mysqli_connect('localhost', 'root', '', 'nikola_prj');
 
   if (isset($_GET['logout'])) {
   	session_destroy();
@@ -40,10 +41,10 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php"> <span class="glyphicon glyphicon-home	
+            <li><a href="index.php"> <span class="glyphicon glyphicon-home	
               "></span> Home</a></li>
             <li><a href="#aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
-            <li><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
+            <li class="active"><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
             <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
           </ul>
           <!--login logout profile -->
@@ -66,67 +67,35 @@
       </div>
     </nav>
     <!-- Content -->
+    <?php $results = mysqli_query($connection, "SELECT * FROM item_prj"); ?>
+
     <div class="container">
 
       <div class="row">
 
           <div class="col-md-offset-2 col-md-8">
 
-              <div class="row carousel-holder">
-
-                  <div class="col-md-12">
-                      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                          <ol class="carousel-indicators">
-                              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                          </ol>
-                          <div class="carousel-inner">
-                              <div class="item active">
-                                  <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                              </div>
-                              <div class="item">
-                                  <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                              </div>
-                          </div>
-                          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                              <span class="glyphicon glyphicon-chevron-left"></span>
-                          </a>
-                          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                              <span class="glyphicon glyphicon-chevron-right"></span>
-                          </a>
-                      </div>
-                  </div>
-
               </div>
-
+              <?php $incre=1; while ($row = mysqli_fetch_array($results)) { ?>
+              <?php if($incre==3) { ?>
               <div class="row">
-
+              <?php } ?>
                   <div class="col-sm-4 col-lg-4 col-md-4">
                       <div class="thumbnail">
-                          <img src="http://placehold.it/320x150" alt="">
+                          <img class="simg" src="images/<?php echo $row['item_image']; ?>" alt="">
                           <div class="caption">
-                              <h4 class="pull-right">$24.99</h4>
-                              <h4><a href="#">First Product</a>
+                              <h4 class="pull-right">RSD<?php echo $row['item_price']; ?></h4>
+                              <h4><a href="#"><?php echo $row['item_name']; ?></a>
                               </h4>
-                              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                          </div>
-                          <div class="ratings">
-                              <p class="pull-right">15 reviews</p>
-                              <p>
-                                  <span class="glyphicon glyphicon-star"></span>
-                                  <span class="glyphicon glyphicon-star"></span>
-                                  <span class="glyphicon glyphicon-star"></span>
-                                  <span class="glyphicon glyphicon-star"></span>
-                                  <span class="glyphicon glyphicon-star"></span>
-                              </p>
+                              <p><?php echo $row['item_text']; ?></p>
+                              <button style="margin:auto; display:block;">Buy</button>
                           </div>
                       </div>
                   </div>
+                <?php if($incre==3) { ?>
               </div>
+              <?php } $incre=$incre+1;?>
+              <?php } ?>
 
           </div>
 

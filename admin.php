@@ -129,7 +129,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php"> <span class="glyphicon glyphicon-home	
+            <li><a href="index.php"> <span class="glyphicon glyphicon-home	
               "></span> Home</a></li>
             <li><a href="#aboutus"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
             <li><a href="shop.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shop</a></li>
@@ -146,7 +146,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a><span class='glyphicon glyphicon-user'></span><?php echo $_SESSION['username']; ?></a></li>
               <?php if($_SESSION['usertype']=="1") : ?>
-                <li><a href='admin.php'><span class='glyphicon glyphicon-wrench'></span>Settings</a></li>
+                <li class="active"><a href='admin.php'><span class='glyphicon glyphicon-wrench'></span>Settings</a></li>
               <?php endif ?>
               <li><a href="index.php?logout='1'"><span class='glyphicon glyphicon-log-out'></span>LogOut</a></li>
             </ul>

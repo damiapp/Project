@@ -1,1 +1,1 @@
-Project
+Ova aplikacija sluzi kao internet prodavnica, specijalno je dizajnirana za prodavanje cveca i zelenila, mada uz malo promene moze da bude prodavnica bilo cega. Admin profil i menjanje baze podatak preko njega je omoguceno.
